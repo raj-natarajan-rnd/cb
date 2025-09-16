@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS hstore;
+
 -- Generic change tracking trigger function using change_tracker table
 CREATE OR REPLACE FUNCTION generic_change_tracker()
 RETURNS TRIGGER AS $$
