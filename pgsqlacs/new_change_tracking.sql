@@ -22,12 +22,12 @@ BEGIN
     -- Build full table name with year suffix
     full_table_name := p_response_table || '_' || p_year;
     
-    -- Build view name with process step suffix
+    -- Build view name with process step suffix (no 'dynamic' word)
     IF UPPER(p_process_step) = 'ALL' THEN
-        view_name := full_table_name || '_dynamic_all';
+        view_name := full_table_name || '_all';
         process_step_filter := '';
     ELSE
-        view_name := full_table_name || '_dynamic_' || LOWER(p_process_step);
+        view_name := full_table_name || '_' || LOWER(p_process_step);
         process_step_filter := ' AND process_step = ''' || p_process_step || '''';
     END IF;
     
